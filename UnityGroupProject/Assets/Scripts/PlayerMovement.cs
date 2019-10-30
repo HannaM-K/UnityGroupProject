@@ -6,9 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     //jak będzie trzeba to zmienić
     public float stepSize = 5;
-    public float jumpPower = 10;
+    public float jumpPower = 12;
 
     float movement;
+    bool jumped;
 
     //publiczne tylko do podglądu przy testach
     public bool isFacingRight = true;
@@ -41,21 +42,29 @@ public class PlayerMovement : MonoBehaviour
 
         sr.flipX = !isFacingRight;
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isOnGround) //może być do przeniesienia do FixedUpdate
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isOnGround)
         {
             //anim
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            jumped = true;
         }
     }
 
+    //w FixedUpdate Rigidbody
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(movement, rb.velocity.y);        
+        rb.velocity = new Vector2(movement, rb.velocity.y);
+
+        if (jumped)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            jumped = false;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ground") isOnGround = true;
+        if (collision.gameObject.tag == "Enemy" && !isOnGround) collision.gameObject.GetComponent<Enemy>().Death();
     }
     void OnTriggerExit2D(Collider2D collision)
     {
