@@ -12,8 +12,6 @@ public class Enemy1Movement : MonoBehaviour
     public Transform eyes;
     public Vector2 kierunek = new Vector2(-1, 0);
 
-    // Update is called once per frame
-
     public void FixedUpdate()
       {
         
@@ -26,7 +24,6 @@ public class Enemy1Movement : MonoBehaviour
             {
                 run = 3;
             }
-            
         }
         else
         {
@@ -40,7 +37,6 @@ public class Enemy1Movement : MonoBehaviour
             {
                 transform.Translate(Vector2.left * speed * run * Time.deltaTime);
             }
-
         }
         else 
         {
