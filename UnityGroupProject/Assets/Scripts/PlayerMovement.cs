@@ -61,14 +61,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+
+    void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground") isOnGround = true;
-        if (collision.gameObject.tag == "Enemy" && !isOnGround) collision.gameObject.GetComponent<Enemy>().Death();
+        if (collision.contacts.Length > 0)
+        {
+            ContactPoint2D contact = collision.contacts[0];
+            if (Vector2.Dot(contact.normal, Vector2.up) > 0.5) isOnGround = true;
+        }
     }
-    void OnTriggerExit2D(Collider2D collision)
+
+    void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground") isOnGround = false;
+        isOnGround = false;
     }
 
 }
