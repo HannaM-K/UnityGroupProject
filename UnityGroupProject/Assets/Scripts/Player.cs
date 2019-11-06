@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Canvas canvas;
     public void Death()
     {
+        UIManager.lifeCount -= 1;
+        canvas.GetComponent<UIManager>().LifeUI();
+        Debug.Log("Tu giniesz. WOW");
+        Debug.Log("Pozostało " + UIManager.lifeCount + " żyć.");
+
         //animacja - miganie czy coś
-        //minus jedno życie
-        Debug.Log("bum");
     }
 }

@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &426093015
 Transform:
   m_ObjectHideFlags: 0
@@ -24,8 +24,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426093014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.726, y: 0.3, z: -1.433362}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalPosition: {x: -0.59, y: 0.3, z: -1.433362}
+  m_LocalScale: {x: 1, y: 0.6666667, z: 1}
   m_Children: []
   m_Father: {fileID: 8003842241630338960}
   m_RootOrder: 1
@@ -72,7 +72,6 @@ GameObject:
   - component: {fileID: 8003842241630338961}
   - component: {fileID: 8003842241630338990}
   - component: {fileID: 4010068066604198388}
-  - component: {fileID: 9192372379566447692}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -93,6 +92,7 @@ Transform:
   m_Children:
   - {fileID: 8003842241197993513}
   - {fileID: 426093015}
+  - {fileID: 910516324476467187}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -157,9 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eba59669ac47524fb8df40b87492893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifes: 3
-  LifeCounter: {fileID: 0}
-  speed: 3
+  speed: 1
   run: 1
   moveLeft: 1
   detector: {fileID: 8003842241197993513}
@@ -191,15 +189,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
---- !u!114 &9192372379566447692
-MonoBehaviour:
+--- !u!1 &9115120976949871956
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8003842241630338963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfde0ef82e42d7f4b92a7d5d954ee47d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 910516324476467187}
+  m_Layer: 0
+  m_Name: Eyes
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &910516324476467187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9115120976949871956}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.726, y: 0.3, z: -1.433362}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_Children: []
+  m_Father: {fileID: 8003842241630338960}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

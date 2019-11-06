@@ -5,21 +5,12 @@ using UnityEngine.UI;
 
 public class Enemy1Movement : MonoBehaviour
 {
-    public int lifes = 3;
-    public Text LifeCounter;
     public float speed = 3;
     public float run = 1;
     public bool moveLeft = true;
     public Transform detector;
     public Transform eyes;
     public Vector2 kierunek = new Vector2(-1, 0);
-
-
-    void Awake()
-    {
-        LifeCounter.text = "Ilość żyć: "+lifes;
-    }
-
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -34,9 +25,7 @@ public class Enemy1Movement : MonoBehaviour
                 }
                 else
                 {
-                    lifes = lifes - 1;
-                    LifeCounter.text = "Ilość żyć: " + lifes;
-                    Debug.Log("Tu giniesz. WOW");
+                    collision.gameObject.GetComponent<Player>().Death();
                 }
             }
             else
