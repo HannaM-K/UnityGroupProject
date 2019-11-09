@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public void Death()
     {
         UIManager.lifeCount -= 1;
-        canvas.GetComponent<UIManager>().LifeUI();
+        canvas.GetComponent<UIManager>().SetUI();
         Debug.Log("Tu giniesz. WOW");
         Debug.Log("Pozostało " + UIManager.lifeCount + " żyć.");
 
