@@ -21,13 +21,13 @@ public class UIManager : MonoBehaviour
         nextUpdate = 0;
         timeCount = 500;
         interval = 1;
-        SetUI();
+        timeCounter.text = (timeCount).ToString();
+        SetLifeCounter();
     }
 
-    public void SetUI()
+    public void SetLifeCounter()
     {
         lifeCounter.text = "Ilość żyć: " + lifeCount;
-        timeCounter.text = (timeCount).ToString();
     }
 
     public void Update()
