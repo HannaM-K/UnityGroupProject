@@ -21,7 +21,7 @@ public class Enemy1Movement : MonoBehaviour
                 ContactPoint2D contact = collision.contacts[0];
                 if (Vector2.Dot(contact.normal, Vector2.down) > 0.5)
                 {
-                    scoreScr.scoreVal = +100;
+                    scoreScr.scoreVal += 100;
                     Destroy(gameObject);
                 }
                 else
