@@ -17,28 +17,34 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb;
     SpriteRenderer sr;
+    Animator am;
 
     void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
+        am = gameObject.GetComponent<Animator>();
     }
 
     void Update()
     {
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            //anim
+            am.SetBool("isWalking", true);
             movement = stepSize;
             isFacingRight = true;
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            //anim
+            am.SetBool("isWalking", true);
             movement = -stepSize;
             isFacingRight = false;
         }
-        else movement = 0;
+        else
+        {
+            am.SetBool("isWalking", false);
+            movement = 0;
+        }
 
         sr.flipX = !isFacingRight;
 

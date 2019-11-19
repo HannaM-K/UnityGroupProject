@@ -12,6 +12,15 @@ public class Enemy1Movement : MonoBehaviour
     public Transform eyes;
     public Vector2 kierunek = new Vector2(-1, 0);
 
+    Rigidbody2D rb;
+    Animator am;
+
+    private void Awake()
+    {
+        am = gameObject.GetComponent<Animator>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.contacts.Length > 0)
@@ -22,7 +31,10 @@ public class Enemy1Movement : MonoBehaviour
                 if (Vector2.Dot(contact.normal, Vector2.down) > 0.5)
                 {
                     scoreScr.scoreVal += 100;
-                    Destroy(gameObject);
+                    //trzeba go zatrzymać, nie wiem jak
+                    //i przechodzi przez ściany
+                    am.SetBool("isDead", true);
+                    Destroy(gameObject, 1.3f);
                 }
                 else
                 {
