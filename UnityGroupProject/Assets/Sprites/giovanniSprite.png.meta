@@ -14,6 +14,9 @@ TextureImporter:
   - first:
       213: -4069041021351820013
     second: giovanniSprite_3
+  - first:
+      213: 5825976347904660905
+    second: giovanniSprite_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -112,7 +115,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a68b4060b6bed048acb684f8678f626
+      spriteID: dfd5f71a7bfb91c42863bc4af84b659c
       internalID: -2371036933493873222
       vertices: []
       indices: 
@@ -133,7 +136,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46d91f8a720e5d545bb577436f6b1848
+      spriteID: dd494b876e9bb0846a96598c72f57d38
       internalID: 6714333010626466391
       vertices: []
       indices: 
@@ -154,7 +157,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d91eb3a761f3c3d47a718d5ef2da89c3
+      spriteID: 86060e28ff484e54ab3a89eac16d172c
       internalID: -4236897799389574793
       vertices: []
       indices: 
@@ -175,8 +178,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad0ad1d4a4584ae4bae4ab74ccae8f72
+      spriteID: f112a46ec4ccefc4d892aa0e39ae7b4b
       internalID: -4069041021351820013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: giovanniSprite_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6df27b36cc30b564ca596112886a33f5
+      internalID: 5825976347904660905
       vertices: []
       indices: 
       edges: []
