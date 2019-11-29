@@ -18,7 +18,10 @@ public class coinScr : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        coinScoreScr.coinAmount += 1;
-        Destroy(gameObject);
+        if (col.gameObject.tag == "Player")
+        {
+            coinScoreScr.coinAmount += 1;
+            Destroy(gameObject);
+        }
     }
 }
