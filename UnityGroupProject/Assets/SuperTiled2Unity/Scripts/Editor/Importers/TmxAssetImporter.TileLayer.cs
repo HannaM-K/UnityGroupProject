@@ -67,6 +67,10 @@ namespace SuperTiled2Unity.Editor
             {
                 GetOrAddTilemapComponent(goLayer);
             }
+            else if (m_TilesAsObjects)
+            {
+                goLayer.AddComponent<SuperTilesAsObjectsTilemap>();
+            }
 
             var chunk = new Chunk();
             chunk.Encoding = xData.GetAttributeAs<DataEncoding>("encoding");
@@ -127,8 +131,8 @@ namespace SuperTiled2Unity.Editor
             }
 
             tilemap = go.AddComponent<Tilemap>();
-            tilemap.tileAnchor = SuperImportContext.TileAnchor;
             tilemap.animationFrameRate = SuperImportContext.Settings.AnimationFramerate;
+            tilemap.tileAnchor = new Vector3(0, 0, 0);
 
             AddTilemapRendererComponent(go);
 
@@ -143,6 +147,11 @@ namespace SuperTiled2Unity.Editor
         {
             var renderer = go.AddComponent<TilemapRenderer>();
             renderer.sortOrder = MapRenderConverter.Tiled2Unity(m_MapComponent.m_RenderOrder);
+
+            // This is a hack so that Unity does not falsely detect prefab instance differences.
+            // See the SuperMap.Start method where this is put to Auto to make up for this.
+            renderer.detectChunkCullingBounds = TilemapRenderer.DetectChunkCullingBounds.Manual;
+
             AssignMaterial(renderer, m_CurrentTileLayer.m_TiledName);
             AssignTilemapSorting(renderer);
 

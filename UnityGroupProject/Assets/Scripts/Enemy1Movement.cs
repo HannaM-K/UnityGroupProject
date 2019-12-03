@@ -13,16 +13,21 @@ public class Enemy1Movement : MonoBehaviour
     public Transform eyes;
     public Vector2 kierunek = new Vector2(-1, 0);
 
+    Animator am;
+
+
+    private void Awake()
+    {
+        am = gameObject.GetComponent<Animator>();
+
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
 
         if (collision.contacts.Length > 0)
         {
-
-
-
-
-            if (collision.gameObject.tag == "Player")
+            if (collision.gameObject.tag == "Player" && zycie==true)
             {
                 ContactPoint2D contact = collision.contacts[0];
                 if (Vector2.Dot(contact.normal, Vector2.down) > 0.5)
@@ -30,7 +35,8 @@ public class Enemy1Movement : MonoBehaviour
                     zycie = false;
                     //@@@ANIMACJA@@@
                     scoreScr.scoreVal += 100;
-                    Destroy(gameObject);
+                    am.SetBool("isDead", true);
+                    Destroy(gameObject, 1.3f);
                 }
                 else
                 {
@@ -60,13 +66,13 @@ public class Enemy1Movement : MonoBehaviour
     {
 
         RaycastHit2D Podloga = Physics2D.Raycast(detector.position, Vector2.down, 0.5f);
-        RaycastHit2D Wykryj = Physics2D.Raycast(eyes.position, kierunek, 3);
+        RaycastHit2D Wykryj = Physics2D.Raycast(eyes.position, kierunek, 4);
 
         if (Wykryj.collider == true)
         {
             if (Wykryj.collider.CompareTag("Player"))
             {
-                run = 2;
+                run = 2.5f;
             }
         }
         else

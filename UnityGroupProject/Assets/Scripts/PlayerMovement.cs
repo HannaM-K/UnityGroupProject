@@ -17,34 +17,40 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb;
     SpriteRenderer sr;
+    Animator am;
 
     void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
+        am = gameObject.GetComponent<Animator>();
     }
 
     void Update()
     {
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            //anim
+            am.SetBool("isWalking", true);
             movement = stepSize;
             isFacingRight = true;
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            //anim
+            am.SetBool("isWalking", true);
             movement = -stepSize;
             isFacingRight = false;
         }
-        else movement = 0;
+        else
+        {
+            am.SetBool("isWalking", false);
+            movement = 0;
+        }
 
         sr.flipX = !isFacingRight;
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isOnGround)
+
+        if (Input.GetKey(KeyCode.UpArrow) && isOnGround)
         {
-            //anim
             jumped = true;
         }
     }
@@ -59,21 +65,27 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
             jumped = false;
         }
+
     }
 
 
     void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.contacts.Length > 0)
         {
-            ContactPoint2D contact = collision.contacts[0];
-            if (Vector2.Dot(contact.normal, Vector2.up) > 0.5) isOnGround = true;
+            if (collision.contacts.Length > 0)
+            {
+                ContactPoint2D contact = collision.contacts[0];
+                if (Vector2.Dot(contact.normal, Vector2.up) > 0.5)
+                {
+                    isOnGround = true;
+                    am.SetBool("isJumping", false);
+                }
+
+            }
         }
-    }
-
     void OnCollisionExit2D(Collision2D collision)
-    {
-        isOnGround = false;
-    }
+        {
+            am.SetBool("isJumping", true);
+            isOnGround = false;
+        }
 
-}
+    }
