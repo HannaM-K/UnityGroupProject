@@ -451,4 +451,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   lifeCounter: {fileID: 8674144852122598725}
-  timeCounter: {fileID: 1307648657}
+  timeCounter: {fileID: 0}
