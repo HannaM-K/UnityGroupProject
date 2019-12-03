@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
         sr.flipX = !isFacingRight;
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isOnGround)
+        if (Input.GetKey(KeyCode.UpArrow) && isOnGround)
         {
             //anim
             jumped = true;
