@@ -36,6 +36,7 @@ public class Enemy1Movement : MonoBehaviour
                     //@@@ANIMACJA@@@
                     scoreScr.scoreVal += 100;
                     am.SetBool("isDead", true);
+                    Destroy(gameObject.GetComponent<BoxCollider2D>()); //żeby Giovanni nie stał na wężu jak umiera
                     Destroy(gameObject, 1.3f);
                 }
                 else
