@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //ten atak to placeholder, do zrobienia jest:
+    //zablokowanie innego ruchu podczas ataku
+    //więcej klatek animacji/dym
+    //zmniejszenie boxcollidera postaci
+    //zablokowanie śmierci postaci przy zderzeniu - w zamian śmierć wroga
+
     //jak będzie trzeba to zmienić
     public float stepSize = 5;
     public float jumpPower = 12;
+    public float specialAttackTime = 5;
+    public float specialAttackSpeedMultiplier = 2;
 
     float movement;
     bool jumped;
+    bool specialAttack;
 
     //publiczne tylko do podglądu przy testach
     public bool isFacingRight = true;
@@ -53,6 +62,11 @@ public class PlayerMovement : MonoBehaviour
         {
             jumped = true;
         }
+
+        if (Input.GetKey(KeyCode.RightControl))
+        {
+            specialAttack = true;
+        }
     }
 
     //w FixedUpdate Rigidbody
@@ -66,8 +80,22 @@ public class PlayerMovement : MonoBehaviour
             jumped = false;
         }
 
+        if (specialAttack)
+        {
+            rb.velocity = new Vector2(rb.velocity.x * specialAttackSpeedMultiplier, rb.velocity.y);
+
+
+            am.SetBool("isAttacking", true);
+            Invoke("StopSpecialAttack", 5);
+        }
+
     }
 
+    void StopSpecialAttack()
+    {
+        am.SetBool("isAttacking", false);
+        specialAttack = false;
+    }
 
     void OnCollisionStay2D(Collision2D collision)
         {
