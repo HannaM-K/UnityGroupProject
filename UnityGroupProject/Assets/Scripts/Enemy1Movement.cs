@@ -30,7 +30,7 @@ public class Enemy1Movement : MonoBehaviour
             if (collision.gameObject.tag == "Player" && zycie==true)
             {
                 ContactPoint2D contact = collision.contacts[0];
-                if (Vector2.Dot(contact.normal, Vector2.down) > 0.5)
+                if (Vector2.Dot(contact.normal, Vector2.down) > 0.5 || PlayerMovement.specialAttack==true)
                 {
                     zycie = false;
                     //@@@ANIMACJA@@@

@@ -13,12 +13,13 @@ public class PlayerMovement : MonoBehaviour
     //jak będzie trzeba to zmienić
     public float stepSize = 5;
     public float jumpPower = 12;
-    public float specialAttackTime = 5;
+    public float specialAttackTime = 3;
     public float specialAttackSpeedMultiplier = 2;
 
     float movement;
     bool jumped;
-    bool specialAttack;
+    public static bool specialAttack;
+    bool startSpecialAttack=false;
 
     //publiczne tylko do podglądu przy testach
     public bool isFacingRight = true;
@@ -82,17 +83,28 @@ public class PlayerMovement : MonoBehaviour
 
         if (specialAttack)
         {
+            if (startSpecialAttack == false)
+            {
+                gameObject.GetComponent<BoxCollider2D>().size = (gameObject.GetComponent<BoxCollider2D>().size) / 2;
+                startSpecialAttack = true;
+                Invoke("StopSpecialAttack", 5);
+            }
             rb.velocity = new Vector2(rb.velocity.x * specialAttackSpeedMultiplier, rb.velocity.y);
-
+            
 
             am.SetBool("isAttacking", true);
-            Invoke("StopSpecialAttack", 5);
+            
         }
 
     }
 
     void StopSpecialAttack()
     {
+        if (startSpecialAttack == true)
+        {
+            gameObject.GetComponent<BoxCollider2D>().size = (gameObject.GetComponent<BoxCollider2D>().size) * 2;
+            startSpecialAttack = false;
+        }
         am.SetBool("isAttacking", false);
         specialAttack = false;
     }
