@@ -7,59 +7,73 @@ public class Enemy1Movement : MonoBehaviour
 {
     public float speed = 3;
     public float run = 1;
+    private bool zycie = true;
     public bool moveLeft = true;
     public Transform detector;
     public Transform eyes;
     public Vector2 kierunek = new Vector2(-1, 0);
 
+    Animator am;
+
+
+    private void Awake()
+    {
+        am = gameObject.GetComponent<Animator>();
+
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.contacts.Length > 0)
         {
-            if (collision.gameObject.tag == "Player")
+            if (collision.gameObject.tag == "Player" && zycie==true)
             {
                 ContactPoint2D contact = collision.contacts[0];
-                if (Vector2.Dot(contact.normal, Vector2.down) > 0.5)
+                if (Vector2.Dot(contact.normal, Vector2.down) > 0.5 || PlayerMovement.specialAttack==true)
                 {
-                    Destroy(gameObject);
+                    zycie = false;
+                    //@@@ANIMACJA@@@
+                    scoreScr.scoreVal += 100;
+                    am.SetBool("isDead", true);
+                    Destroy(gameObject.GetComponent<BoxCollider2D>()); //żeby Giovanni nie stał na wężu jak umiera
+                    Destroy(gameObject, 1.3f);
                 }
                 else
                 {
                     collision.gameObject.GetComponent<Player>().Death();
+                    run = 1;
                 }
             }
             else
+            //if (collision.contacts[0].normal == Vector2.left || collision.contacts[0].normal == Vector2.right)
             {
-                ContactPoint2D contact = collision.contacts[0];
-                if (Vector2.Dot(contact.normal, Vector2.left) > 0.5)
-                {
-                    transform.eulerAngles = new Vector2(0, -180);
-                    moveLeft = false;
-                }
-                else if (Vector2.Dot(contact.normal, Vector2.right) > 0.5)
-                {
-                    transform.eulerAngles = new Vector2(0, 0);
-                    moveLeft = true;
-                }
+
+
+                Zmiana();
+
             }
 
         }
+
     }
-    
 
-   
 
-    public void FixedUpdate()
-      {
-        
-        RaycastHit2D Podloga = Physics2D.Raycast(detector.position, Vector2.down, 1);
-        RaycastHit2D Wykryj = Physics2D.Raycast(eyes.position, kierunek, 3);
-      
+
+
+
+
+    public void Update()
+    {
+
+        RaycastHit2D Podloga = Physics2D.Raycast(detector.position, Vector2.down, 0.5f);
+        RaycastHit2D Wykryj = Physics2D.Raycast(eyes.position, kierunek, 4);
+
         if (Wykryj.collider == true)
         {
-            if(Wykryj.collider.CompareTag("Player"))
+            if (Wykryj.collider.CompareTag("Player"))
             {
-                run = 3;
+                run = 2.5f;
             }
         }
         else
@@ -70,14 +84,21 @@ public class Enemy1Movement : MonoBehaviour
 
         if (Podloga.collider == true)
         {
-            if (!Podloga.collider.CompareTag("Player"))
-            {
-                transform.Translate(Vector2.left * speed * run * Time.deltaTime);
-            }
+
+            Idz();
+            
         }
-        else 
+        else
         {
-            if (moveLeft == true)
+            Zmiana();
+
+        }
+
+    }
+
+    public void Zmiana()
+    {
+           if (moveLeft == true)
             {
                 transform.eulerAngles = new Vector2(0, -180);
                 moveLeft = false;
@@ -89,11 +110,15 @@ public class Enemy1Movement : MonoBehaviour
                 moveLeft = true;
                 kierunek = new Vector2(-1, 0);
             }
-
-        }
-
     }
 
+    public void Idz()
+    {
+        if (zycie == true)
+        {
+            transform.Translate(Vector2.left * speed * run * Time.deltaTime);
+        }
+    }
 
 
 }
