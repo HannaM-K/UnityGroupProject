@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     public Player player;
     public Text lifeCounter;
     public Text timeCounter;
+    public GameObject gameOverCanvas;
+    public GameObject pauseCanvas;
 
     void Awake()
     {
@@ -59,19 +61,43 @@ public class UIManager : MonoBehaviour
             else
             {
                 //tutaj jakieś zakończenie gry
-                Debug.Log("Koniec gry. Czas się skończył.");
-                Application.Quit();
+                //Debug.Log("Koniec gry. Czas się skończył.");
+                //Application.Quit();
+                gameOverCanvas.SetActive(true);
+                Time.timeScale = 0f;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Escape) || lifeCount == 0)
+        if (lifeCount == 0)
         {
-            LoadMenu();
+           gameOverCanvas.SetActive(true);
+           Time.timeScale = 0f;
+            Debug.Log("timeScale: " + Time.timeScale);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            Time.timeScale = 0f;
+            pauseCanvas.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            Time.timeScale = 1f;
+            pauseCanvas.SetActive(false);
         }
     }
-    void LoadMenu()
+    public void LoadMenu()
     {
+        Time.timeScale = 1f;
         Debug.Log("Powrot do menu.");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene("Menu");
+        InitVariables();
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        Debug.Log("Reload scene.");
+        Debug.Log("timeScale: " + Time.timeScale);
+        SceneManager.LoadScene("Main_Scene");
         InitVariables();
     }
 }
