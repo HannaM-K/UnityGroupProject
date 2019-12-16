@@ -18,4 +18,8 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Wyjście z gry.");
         Application.Quit();
     }
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Menu_Scene");
+    }
 }

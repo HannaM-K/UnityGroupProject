@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    private int timeCount;
+    public static int timeCount;
     private int interval;
     private float nextUpdate;
 
