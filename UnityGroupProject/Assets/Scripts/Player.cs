@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
         print(transform.position);
         checkpoint = transform.position;
     }
-   
 
     public void Death()
     {

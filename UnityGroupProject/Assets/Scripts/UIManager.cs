@@ -88,7 +88,7 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         Debug.Log("Powrot do menu.");
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Menu_Scene");
         InitVariables();
     }
 
