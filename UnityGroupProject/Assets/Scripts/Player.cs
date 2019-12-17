@@ -18,7 +18,6 @@ public class Player : MonoBehaviour
         UIManager.SubstractLife();
         canvas.GetComponent<UIManager>().SetLifeCounter();
         transform.position = checkpoint;
-        Invoke("EndDeathAnimation", 1);
         Debug.Log("Tu giniesz. WOW");
         Debug.Log("Pozostało " + UIManager.lifeCount + " żyć.");
     }
