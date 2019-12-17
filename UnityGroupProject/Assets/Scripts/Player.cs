@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
         checkpoint = transform.position;
         am = gameObject.GetComponent<Animator>();
     }
-   
 
     public void Death()
     {
