@@ -6,10 +6,11 @@ public class Player : MonoBehaviour
 {
     public Canvas canvas;
     public static Vector2 checkpoint = new Vector2(0,0);
+    Animator am;
     void Awake()
     {
-        print(transform.position);
         checkpoint = transform.position;
+        am = gameObject.GetComponent<Animator>();
     }
 
     public void Death()
@@ -17,9 +18,8 @@ public class Player : MonoBehaviour
         UIManager.SubstractLife();
         canvas.GetComponent<UIManager>().SetLifeCounter();
         transform.position = checkpoint;
+        Invoke("EndDeathAnimation", 1);
         Debug.Log("Tu giniesz. WOW");
         Debug.Log("Pozostało " + UIManager.lifeCount + " żyć.");
-
-        //animacja - miganie czy coś
     }
 }

@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //ten atak to placeholder, do zrobienia jest:
-    //zablokowanie innego ruchu podczas ataku
+    public Sprite defaultSprite;
+    public Sprite shellSprite;
     //więcej klatek animacji/dym
-    //zmniejszenie boxcollidera postaci
-    //zablokowanie śmierci postaci przy zderzeniu - w zamian śmierć wroga
 
     //jak będzie trzeba to zmienić
     public float stepSize = 5;
     public float jumpPower = 12;
     public float specialAttackTime = 3;
     public float specialAttackSpeedMultiplier = 2;
+    public float specialAttackJumpMultiplier = 0.5f;
 
     float movement;
     bool jumped;
-    public static bool specialAttack;
-    bool startSpecialAttack=false;
+    public static bool specialAttack = false;
+    bool startSpecialAttack = false;
 
     //publiczne tylko do podglądu przy testach
     public bool isFacingRight = true;
     public bool isOnGround = true;
+
 
     Rigidbody2D rb;
     SpriteRenderer sr;
@@ -70,30 +70,31 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //w FixedUpdate Rigidbody
     void FixedUpdate()
     {
         rb.velocity = new Vector2(movement, rb.velocity.y);
-
-        if (jumped)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-            jumped = false;
-        }
 
         if (specialAttack)
         {
             if (startSpecialAttack == false)
             {
-                gameObject.GetComponent<BoxCollider2D>().size = (gameObject.GetComponent<BoxCollider2D>().size) / 2;
+                
+                gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0.28f, 0.20f);
+                jumpPower = 8;
+                jumped = true; // added a little jump here
                 startSpecialAttack = true;
+                am.SetBool("startedAttacking", true);
+                sr.sprite = shellSprite;
                 Invoke("StopSpecialAttack", 5);
             }
             rb.velocity = new Vector2(rb.velocity.x * specialAttackSpeedMultiplier, rb.velocity.y);
             
+        }
 
-            am.SetBool("isAttacking", true);
-            
+        if (jumped)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            jumped = false;
         }
 
     }
@@ -102,12 +103,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (startSpecialAttack == true)
         {
-            gameObject.GetComponent<BoxCollider2D>().size = (gameObject.GetComponent<BoxCollider2D>().size) * 2;
+            gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0.32f, 0.64f);
             startSpecialAttack = false;
         }
-        am.SetBool("isAttacking", false);
+        am.SetBool("startedAttacking", false);
+        jumpPower = 12;
+        sr.sprite = defaultSprite;
         specialAttack = false;
     }
+
 
     void OnCollisionStay2D(Collision2D collision)
         {
