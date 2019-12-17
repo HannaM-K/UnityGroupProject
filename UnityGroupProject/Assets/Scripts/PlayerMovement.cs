@@ -6,19 +6,22 @@ public class PlayerMovement : MonoBehaviour
 {
     public Sprite defaultSprite;
     public Sprite shellSprite;
-    //więcej klatek animacji/dym
 
     //jak będzie trzeba to zmienić
     public float stepSize = 5;
     public float jumpPower = 12;
-    public float specialAttackTime = 3;
+
+    public float specialAttackTime = 2;
     public float specialAttackSpeedMultiplier = 2;
-    public float specialAttackJumpMultiplier = 0.5f;
+    public float specialAttackCooldown = 10; //w sekundach
 
     float movement;
     bool jumped;
-    public static bool specialAttack = false;
-    bool startSpecialAttack = false;
+
+    public static bool specialAttackMode = false;
+    bool startedSpecialAttack = false;
+
+    float timeStamp;
 
     //publiczne tylko do podglądu przy testach
     public bool isFacingRight = true;
@@ -31,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
+        timeStamp = -specialAttackCooldown; //żeby na starcie wynosił 0
         rb = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         am = gameObject.GetComponent<Animator>();
@@ -64,9 +68,9 @@ public class PlayerMovement : MonoBehaviour
             jumped = true;
         }
 
-        if (Input.GetKey(KeyCode.RightControl))
+        if (Input.GetKey(KeyCode.RightControl) && Time.time > timeStamp + specialAttackCooldown)
         {
-            specialAttack = true;
+            specialAttackMode = true;
         }
     }
 
@@ -74,21 +78,22 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = new Vector2(movement, rb.velocity.y);
 
-        if (specialAttack)
+        if (specialAttackMode)
         {
-            if (startSpecialAttack == false)
+            if (startedSpecialAttack == false)
             {
-                
                 gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0.28f, 0.20f);
+
                 jumpPower = 8;
-                jumped = true; // added a little jump here
-                startSpecialAttack = true;
+                jumped = true;
+                
+                startedSpecialAttack = true;
                 am.SetBool("startedAttacking", true);
+                
                 sr.sprite = shellSprite;
-                Invoke("StopSpecialAttack", 5);
+                Invoke("StopSpecialAttack", specialAttackTime);
             }
             rb.velocity = new Vector2(rb.velocity.x * specialAttackSpeedMultiplier, rb.velocity.y);
-            
         }
 
         if (jumped)
@@ -101,15 +106,18 @@ public class PlayerMovement : MonoBehaviour
 
     void StopSpecialAttack()
     {
-        if (startSpecialAttack == true)
+        if (startedSpecialAttack == true)
         {
             gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0.32f, 0.64f);
-            startSpecialAttack = false;
+            am.SetBool("startedAttacking", false);
+            jumpPower = 12;
+            sr.sprite = defaultSprite;
+            specialAttackMode = false;
+
+            startedSpecialAttack = false;
+
+            timeStamp = Time.time;
         }
-        am.SetBool("startedAttacking", false);
-        jumpPower = 12;
-        sr.sprite = defaultSprite;
-        specialAttack = false;
     }
 
 
