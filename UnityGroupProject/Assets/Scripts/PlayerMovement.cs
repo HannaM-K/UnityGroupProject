@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     public bool isFacingRight = true;
     public bool isOnGround = true;
 
+    //dzwiek do skoku
+    public AudioSource JumpAudioSource;
 
     Rigidbody2D rb;
     SpriteRenderer sr;
@@ -99,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
         if (jumped)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            JumpAudioSource.Play();
             jumped = false;
         }
 
