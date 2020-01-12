@@ -15,10 +15,10 @@ public class EndMenu : MonoBehaviour
     void Start()
     {
         endScoreNumber = (coinScoreScr.coinAmount * 200) + scoreScr.scoreVal + (UIManager.timeCount * 5);
-        coinAmount.text = "Coins score: " + coinScoreScr.coinAmount.ToString() +  "* 200 =" + coinScoreScr.coinAmount*200;
-        gameScore.text = "Level score: " + scoreScr.scoreVal;
-        timeLeft.text = "Time left score: " + UIManager.timeCount.ToString() + " * 5 = " + UIManager.timeCount*5;
-        endScore.text = "End Game Score: " + endScoreNumber;
+        coinAmount.text = "Monety: " + coinScoreScr.coinAmount.ToString() +  "* 200 =" + coinScoreScr.coinAmount*200;
+        gameScore.text = "Poziom: " + scoreScr.scoreVal;
+        timeLeft.text = "Czas: " + UIManager.timeCount.ToString() + " * 5 = " + UIManager.timeCount*5;
+        endScore.text = "Wynik końcowy: " + endScoreNumber;
     }
 
     // Update is called once per frame

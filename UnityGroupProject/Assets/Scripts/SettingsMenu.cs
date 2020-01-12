@@ -10,17 +10,23 @@ public class SettingsMenu : MonoBehaviour
     public void SounOn()
     {
         IsSoundOn = true;
+        LoadMenuScene();
     }
     public void SounOff()
     {
         IsSoundOn = false;
+        LoadMenuScene();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene("Menu_Scene");
+            LoadMenuScene();
         }
+    }
+    void LoadMenuScene()
+    {
+        SceneManager.LoadScene("Menu_Scene");
     }
 }

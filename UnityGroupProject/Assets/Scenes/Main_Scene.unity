@@ -1432,6 +1432,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 844633785, guid: c85ad9fb3d82c6741839124b72459ed9, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1268378752}
     - target: {fileID: 4390173355556973099, guid: c85ad9fb3d82c6741839124b72459ed9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1564,10 +1568,6 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 844633785, guid: c85ad9fb3d82c6741839124b72459ed9, type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 1268378752}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c85ad9fb3d82c6741839124b72459ed9, type: 3}
 --- !u!1 &980811758
@@ -3122,7 +3122,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '[Esc - pause]'
+  m_Text: '[Esc - pauza]'
 --- !u!222 &1890291687
 CanvasRenderer:
   m_ObjectHideFlags: 0
