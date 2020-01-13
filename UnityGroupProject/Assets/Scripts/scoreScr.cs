@@ -16,6 +16,6 @@ public class scoreScr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        score.text = "Punkty: " + scoreVal;
+        score.text = "x" + scoreVal;
     }
 }

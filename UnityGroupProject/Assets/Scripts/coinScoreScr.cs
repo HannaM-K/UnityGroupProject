@@ -16,6 +16,6 @@ public class coinScoreScr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        coinText.text = "Monety: " + coinAmount.ToString();
+        coinText.text = "x" + coinAmount.ToString();
     }
 }

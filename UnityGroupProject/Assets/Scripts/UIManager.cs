@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour
 
     public void SetLifeCounter()
     {
-        lifeCounter.text = "Ilość żyć: " + lifeCount;
+        lifeCounter.text = "x" + lifeCount;
     }
 
     public void Update()
