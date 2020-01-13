@@ -70,7 +70,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow) && isOnGround)
         {
-            rb.velocity = new Vector2(rb.velocity.x, 0);
             jumped = true;
         }
 
@@ -107,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
         if (jumped)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-            JumpAudioSource.Play();
+            if (!JumpAudioSource.isPlaying) JumpAudioSource.Play();
             jumped = false;
         }
 
