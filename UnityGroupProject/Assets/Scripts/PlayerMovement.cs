@@ -67,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow) && isOnGround)
         {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
             jumped = true;
         }
 
