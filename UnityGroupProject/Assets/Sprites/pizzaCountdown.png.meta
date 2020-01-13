@@ -1,22 +1,34 @@
 fileFormatVersion: 2
-guid: 14729d6437634cd4f93b86dd1e277381
+guid: 36e4ca6bce47d534f9bfda2d07e27d62
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2371036933493873222
-    second: giovanniSprite_0
+      213: 3593630546354895600
+    second: pizzaCountdown_0
   - first:
-      213: 6714333010626466391
-    second: giovanniSprite_1
+      213: -2174708639683966873
+    second: pizzaCountdown_1
   - first:
-      213: -4236897799389574793
-    second: giovanniSprite_2
+      213: 8426188162671987721
+    second: pizzaCountdown_2
   - first:
-      213: -4069041021351820013
-    second: giovanniSprite_3
+      213: 2590034793867663123
+    second: pizzaCountdown_3
   - first:
-      213: 5825976347904660905
-    second: giovanniSprite_4
+      213: -5538768155063124043
+    second: pizzaCountdown_4
+  - first:
+      213: 1472758133028080880
+    second: pizzaCountdown_5
+  - first:
+      213: -2762841305473685438
+    second: pizzaCountdown_6
+  - first:
+      213: 1299320954736113598
+    second: pizzaCountdown_7
+  - first:
+      213: 5725384624361183356
+    second: pizzaCountdown_8
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -60,9 +72,9 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 96
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -75,10 +87,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 1
     textureFormat: 4
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -87,10 +99,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 1
     textureFormat: 4
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -101,96 +113,180 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: giovanniSprite_0
+      name: pizzaCountdown_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b04e9ae0ea92141438b292e04b2be9d7
+      internalID: 3593630546354895600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pizzaCountdown_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b360c222e8351c4a8421c131c59832d
+      internalID: -2174708639683966873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pizzaCountdown_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa14f22a883a96a4bbb971d7bcecb1f6
+      internalID: 8426188162671987721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pizzaCountdown_3
       rect:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 32
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01d3312006e53154bb0f144d81332c67
-      internalID: -2371036933493873222
+      spriteID: 97010d6b01c2e664e8151a08ec2e512e
+      internalID: 2590034793867663123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: giovanniSprite_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 539ee439667084841b75e453f8acd328
-      internalID: 6714333010626466391
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: giovanniSprite_2
+      name: pizzaCountdown_4
       rect:
         serializedVersion: 2
         x: 64
         y: 64
-        width: 32
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcbbda71e91b8104f9a7d94a0838afda
-      internalID: -4236897799389574793
+      spriteID: ed45c269e15dd2a4085ff7472e9a761b
+      internalID: -5538768155063124043
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: giovanniSprite_3
+      name: pizzaCountdown_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffa37c67fd27b5945bbe5226cab380d7
+      internalID: 1472758133028080880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pizzaCountdown_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64f9627069f64db4f81dfeb424611bfa
-      internalID: -4069041021351820013
+      spriteID: 8ce01583c88e1af439202a87a348f390
+      internalID: -2762841305473685438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: giovanniSprite_4
+      name: pizzaCountdown_7
       rect:
         serializedVersion: 2
-        x: 32
+        x: 64
         y: 0
-        width: 32
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66535d2fd9531f640aa09b25b42a3f73
+      internalID: 1299320954736113598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pizzaCountdown_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -199,8 +295,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c778171c8cce9604682cb7c30533bc51
-      internalID: 5825976347904660905
+      spriteID: 6517889abea85d0479d194c0f9190d7d
+      internalID: 5725384624361183356
       vertices: []
       indices: 
       edges: []

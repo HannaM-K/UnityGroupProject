@@ -11,9 +11,9 @@ public class PlayerMovement : MonoBehaviour
     public float stepSize = 5;
     public float jumpPower = 12;
 
-    public float specialAttackTime = 2;
+    public float specialAttackTime = 4;
     public float specialAttackSpeedMultiplier = 2;
-    public float specialAttackCooldown = 10; //w sekundach
+    public float specialAttackCooldown = 8; //w sekundach
 
     float movement;
     bool jumped;
@@ -33,6 +33,9 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator am;
+    public Animator amUIAttack;
+
+
 
     void Awake()
     {
@@ -92,7 +95,9 @@ public class PlayerMovement : MonoBehaviour
                 
                 startedSpecialAttack = true;
                 am.SetBool("startedAttacking", true);
-                
+
+                amUIAttack.Play("specialAttackUsed");
+
                 sr.sprite = shellSprite;
                 Invoke("StopSpecialAttack", specialAttackTime);
             }
@@ -114,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0.32f, 0.64f);
             am.SetBool("startedAttacking", false);
+            amUIAttack.Play("specialAttackCooldown");
             jumpPower = 12;
             sr.sprite = defaultSprite;
             specialAttackMode = false;

@@ -48,10 +48,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60cf827dde4083d4696b6f7dc98d2b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSprite: {fileID: -2371036933493873222, guid: 14729d6437634cd4f93b86dd1e277381,
+    type: 3}
+  shellSprite: {fileID: -8886783146844363957, guid: c10352648af59b844a4e5aad60d65fdd,
+    type: 3}
   stepSize: 5
   jumpPower: 12
+  specialAttackTime: 4
+  specialAttackSpeedMultiplier: 2
+  specialAttackCooldown: 8
   isFacingRight: 1
   isOnGround: 0
+  JumpAudioSource: {fileID: 0}
+  amUIAttack: {fileID: 0}
 --- !u!212 &4390173355556973096
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -96,7 +105,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.28, y: 1.28}
+  m_Size: {x: 0.33333334, y: 0.6666667}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -141,7 +150,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.33333334, y: 0.6666667}
-    newSize: {x: 1.28, y: 1.28}
+    newSize: {x: 0.33333334, y: 0.6666667}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
