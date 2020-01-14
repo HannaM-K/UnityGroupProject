@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 246014567}
   - component: {fileID: 246014566}
   m_Layer: 5
-  m_Name: SoundOnButton (1)
+  m_Name: SoundOffButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,7 +289,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 97575242}
-        m_MethodName: SounOn
+        m_MethodName: SounOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

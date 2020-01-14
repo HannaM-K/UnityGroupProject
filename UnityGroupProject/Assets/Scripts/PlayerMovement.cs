@@ -27,8 +27,9 @@ public class PlayerMovement : MonoBehaviour
     public bool isFacingRight = true;
     public bool isOnGround = true;
 
-    //dzwiek do skoku
+    //dzwieki
     public AudioSource JumpAudioSource;
+    public AudioSource SpecialAttackSource;
 
     Rigidbody2D rb;
     SpriteRenderer sr;
@@ -76,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.RightControl) && Time.time > timeStamp + specialAttackCooldown)
         {
             specialAttackMode = true;
+            SpecialAttackSource.Play();
         }
     }
 
