@@ -21,6 +21,6 @@ public class Player : MonoBehaviour
         transform.position = checkpoint;
         Debug.Log("Tu giniesz. WOW");
         Debug.Log("Pozostało " + UIManager.lifeCount + " żyć.");
-        death.Play();
+        //death.Play();
     }
 }
