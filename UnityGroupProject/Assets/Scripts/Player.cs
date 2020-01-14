@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public Canvas canvas;
     public static Vector2 checkpoint = new Vector2(0,0);
     Animator am;
+    public AudioSource death;
     void Awake()
     {
         checkpoint = transform.position;
@@ -20,5 +21,6 @@ public class Player : MonoBehaviour
         transform.position = checkpoint;
         Debug.Log("Tu giniesz. WOW");
         Debug.Log("Pozostało " + UIManager.lifeCount + " żyć.");
+        death.Play();
     }
 }
