@@ -140,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
         {
-            if (collision.contacts.Length > 0)
+        if (collision.contacts.Length > 0)
             {
                 ContactPoint2D contact = collision.contacts[0];
                 if (Vector2.Dot(contact.normal, Vector2.up) > 0.5)
@@ -151,6 +151,7 @@ public class PlayerMovement : MonoBehaviour
 
             }
         }
+
     void OnCollisionExit2D(Collision2D collision)
         {
             am.SetBool("isJumping", true);

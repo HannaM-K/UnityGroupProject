@@ -9,6 +9,7 @@ TagManager:
   - Life
   - Time
   - Coin
+  - Underground
   layers:
   - Default
   - TransparentFX
