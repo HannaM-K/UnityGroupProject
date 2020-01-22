@@ -25,9 +25,9 @@ public class UIManager : MonoBehaviour
     {
         InitVariables();
         bgAudio = gameObject.GetComponent<AudioSource>();
-        
-        if (SettingsMenu.IsSoundOn) audioListener.enabled = true;
-        else audioListener.enabled = false;
+
+        if (SettingsMenu.IsSoundOn) AudioListener.volume = 1;
+        else AudioListener.volume = 0;
     }
     public void InitVariables()
     {

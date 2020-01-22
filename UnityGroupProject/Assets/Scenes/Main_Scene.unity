@@ -346,22 +346,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 28560140, guid: b700537b1212cba41a0f63d62d30e2eb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 153386437, guid: b700537b1212cba41a0f63d62d30e2eb, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: c5dae64cebc6a334386bbebc1d763deb, type: 3}
-    - target: {fileID: 153386437, guid: b700537b1212cba41a0f63d62d30e2eb, type: 3}
-      propertyPath: m_Volume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1548838369, guid: b700537b1212cba41a0f63d62d30e2eb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6309286017377424436, guid: b700537b1212cba41a0f63d62d30e2eb,
         type: 3}
       propertyPath: player
@@ -372,21 +356,6 @@ PrefabInstance:
       propertyPath: audioListener
       value: 
       objectReference: {fileID: 752520159}
-    - target: {fileID: 7238834091720798538, guid: b700537b1212cba41a0f63d62d30e2eb,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7238834091720798538, guid: b700537b1212cba41a0f63d62d30e2eb,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7238834091720798538, guid: b700537b1212cba41a0f63d62d30e2eb,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -134
-      objectReference: {fileID: 0}
     - target: {fileID: 8674144852215141169, guid: b700537b1212cba41a0f63d62d30e2eb,
         type: 3}
       propertyPath: m_LocalPosition.x
