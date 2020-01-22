@@ -350,7 +350,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 526513126}
+      objectReference: {fileID: 752360367}
     - target: {fileID: 6309286017377424436, guid: b700537b1212cba41a0f63d62d30e2eb,
         type: 3}
       propertyPath: audioListener
@@ -640,18 +640,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 434325973}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &526513126 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 844633785, guid: c85ad9fb3d82c6741839124b72459ed9,
-    type: 3}
-  m_PrefabInstance: {fileID: 928810263}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1591b450c18772b44a00836d4d871dc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &528298117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -802,6 +790,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17ec7704e79f67a42a66b8ff29909c8b, type: 3}
+--- !u!1 &752360367 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4390173355556973093, guid: c85ad9fb3d82c6741839124b72459ed9,
+    type: 3}
+  m_PrefabInstance: {fileID: 928810263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &752520158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -987,10 +981,6 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1622450779}
-    - target: {fileID: 844633785, guid: c85ad9fb3d82c6741839124b72459ed9, type: 3}
-      propertyPath: deathSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 4f1f8d8024d5755409577032a35cb263, type: 3}
     - target: {fileID: 4390173355556973092, guid: c85ad9fb3d82c6741839124b72459ed9,
         type: 3}
       propertyPath: amUIAttack
@@ -1009,7 +999,7 @@ PrefabInstance:
     - target: {fileID: 4390173355556973099, guid: c85ad9fb3d82c6741839124b72459ed9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.1
+      value: 3.327
       objectReference: {fileID: 0}
     - target: {fileID: 4390173355556973099, guid: c85ad9fb3d82c6741839124b72459ed9,
         type: 3}
@@ -1658,7 +1648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1606686421
 Transform:
   m_ObjectHideFlags: 0

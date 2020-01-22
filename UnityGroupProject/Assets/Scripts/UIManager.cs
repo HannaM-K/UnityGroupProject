@@ -13,16 +13,19 @@ public class UIManager : MonoBehaviour
     private float nextUpdate;
 
     public static int lifeCount = 3;
-    public Player player;
+    public GameObject player;
     public Text lifeCounter;
     public Text timeCounter;
     public GameObject gameOverCanvas;
     public GameObject pauseCanvas;
 
     public AudioListener audioListener;
+    AudioSource bgAudio;
     void Awake()
     {
         InitVariables();
+        bgAudio = gameObject.GetComponent<AudioSource>();
+        
         if (SettingsMenu.IsSoundOn) audioListener.enabled = true;
         else audioListener.enabled = false;
     }
@@ -66,25 +69,33 @@ public class UIManager : MonoBehaviour
                 //tutaj jakieś zakończenie gry
                 //Debug.Log("Koniec gry. Czas się skończył.");
                 //Application.Quit();
+                bgAudio.Stop();
                 gameOverCanvas.SetActive(true);
                 Time.timeScale = 0f;
             }
         }
         if (lifeCount == 0)
         {
+           bgAudio.Stop();
            gameOverCanvas.SetActive(true);
            Time.timeScale = 0f;
         }
-        if (Input.GetKeyDown(KeyCode.Escape)) 
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Time.timeScale = 0f;
-            pauseCanvas.SetActive(true);
+            if (pauseCanvas.activeSelf)
+            {
+                Time.timeScale = 1f;
+                pauseCanvas.SetActive(false);
+                player.SetActive(true);
+            }
+            else if (!pauseCanvas.activeSelf)
+            {
+                Time.timeScale = 0f;
+                pauseCanvas.SetActive(true);
+                player.SetActive(false);
+            }
         }
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            Time.timeScale = 1f;
-            pauseCanvas.SetActive(false);
-        }
+            
     }
     public void LoadMenu()
     {

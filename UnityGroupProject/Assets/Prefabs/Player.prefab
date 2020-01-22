@@ -59,7 +59,7 @@ MonoBehaviour:
   specialAttackSpeedMultiplier: 2
   specialAttackCooldown: 8
   isFacingRight: 1
-  isOnGround: 0
+  isOnGround: 1
   jumpingSound: {fileID: 8300000, guid: 495eea004d58e044183c518e9ed12446, type: 3}
   spAttackSound: {fileID: 8300000, guid: 8167af38adfdd2b409455c25050e189c, type: 3}
   amUIAttack: {fileID: 0}
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
-  death: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: 4f1f8d8024d5755409577032a35cb263, type: 3}
 --- !u!95 &822301711
 Animator:
   serializedVersion: 3
