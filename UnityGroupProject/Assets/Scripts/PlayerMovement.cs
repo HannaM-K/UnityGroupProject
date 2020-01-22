@@ -28,14 +28,18 @@ public class PlayerMovement : MonoBehaviour
     public bool isOnGround = true;
 
     //dzwieki
-    public AudioSource JumpAudioSource;
-    public AudioSource SpecialAttackSource;
+    //public AudioSource PlayerAudioSource;
+    //public AudioSource SpecialAttackSource;
 
+    public AudioClip jumpingSound;
+    public AudioClip spAttackSound;
+
+    AudioSource audios;
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator am;
     public Animator amUIAttack;
-
+    
 
 
     void Awake()
@@ -44,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         am = gameObject.GetComponent<Animator>();
+        audios = gameObject.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -77,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.RightControl) && Time.time > timeStamp + specialAttackCooldown)
         {
             specialAttackMode = true;
-            SpecialAttackSource.Play();
+            audios.PlayOneShot(spAttackSound);
         }
     }
 
@@ -108,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
         if (jumped)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
-            if (!JumpAudioSource.isPlaying) JumpAudioSource.Play();
+            if (!audios.isPlaying) audios.PlayOneShot(jumpingSound);
             jumped = false;
         }
 

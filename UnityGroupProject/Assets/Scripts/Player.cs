@@ -7,10 +7,13 @@ public class Player : MonoBehaviour
     public Canvas canvas;
     public static Vector2 checkpoint = new Vector2(0,0);
     Animator am;
-    public AudioSource death;
+    AudioSource audios;
+
+    public AudioClip deathSound;
     void Awake()
     {
         checkpoint = transform.position;
+        audios = gameObject.GetComponent<AudioSource>();
         am = gameObject.GetComponent<Animator>();
     }
 
@@ -19,8 +22,8 @@ public class Player : MonoBehaviour
         UIManager.SubstractLife();
         canvas.GetComponent<UIManager>().SetLifeCounter();
         transform.position = checkpoint;
-        Debug.Log("Tu giniesz. WOW");
-        Debug.Log("Pozostało " + UIManager.lifeCount + " żyć.");
-        //death.Play();
+
+        am.SetBool("isJumping", true);
+        audios.PlayOneShot(deathSound);
     }
 }
