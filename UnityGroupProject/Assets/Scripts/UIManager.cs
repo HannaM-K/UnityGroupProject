@@ -80,7 +80,7 @@ public class UIManager : MonoBehaviour
            gameOverCanvas.SetActive(true);
            Time.timeScale = 0f;
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameOverCanvas.activeSelf)
         {
             if (pauseCanvas.activeSelf)
             {
