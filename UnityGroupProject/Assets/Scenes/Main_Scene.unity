@@ -377,7 +377,7 @@ PrefabInstance:
     - target: {fileID: 8674144852215141168, guid: b700537b1212cba41a0f63d62d30e2eb,
         type: 3}
       propertyPath: m_PixelPerfect
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8674144852215141169, guid: b700537b1212cba41a0f63d62d30e2eb,
         type: 3}
@@ -497,12 +497,12 @@ PrefabInstance:
     - target: {fileID: 8674144852215141175, guid: b700537b1212cba41a0f63d62d30e2eb,
         type: 3}
       propertyPath: m_ReferenceResolution.x
-      value: 640
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 8674144852215141175, guid: b700537b1212cba41a0f63d62d30e2eb,
         type: 3}
       propertyPath: m_ReferenceResolution.y
-      value: 480
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 8674144852215141175, guid: b700537b1212cba41a0f63d62d30e2eb,
         type: 3}
