@@ -19,9 +19,12 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverCanvas;
     public GameObject pauseCanvas;
 
+    public AudioListener audioListener;
     void Awake()
     {
         InitVariables();
+        if (SettingsMenu.IsSoundOn) audioListener.enabled = true;
+        else audioListener.enabled = false;
     }
     public void InitVariables()
     {
@@ -71,7 +74,6 @@ public class UIManager : MonoBehaviour
         {
            gameOverCanvas.SetActive(true);
            Time.timeScale = 0f;
-            Debug.Log("timeScale: " + Time.timeScale);
         }
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
