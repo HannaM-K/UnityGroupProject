@@ -125,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.GetComponent<BoxCollider2D>().size = new Vector2(0.32f, 0.64f);
             am.SetBool("startedAttacking", false);
+            audios.PlayOneShot(spAttackSound);
             amUIAttack.Play("specialAttackCooldown");
             jumpPower = 12;
             sr.sprite = defaultSprite;

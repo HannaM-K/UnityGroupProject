@@ -12,6 +12,6 @@ public class CameraScript : MonoBehaviour
         //tu może trzeba będzie coś pozmieniać
         float blend = 1f - Mathf.Pow(1f - followSharpness, Time.deltaTime * 100f);
 
-        transform.position = Vector3.Lerp(transform.position, new Vector3(player.position.x, player.position.y, -0.5f), blend);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(player.position.x, player.position.y, -1f), blend);
     }
 }
